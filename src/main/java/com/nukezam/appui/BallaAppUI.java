@@ -9,6 +9,7 @@ public class BallaAppUI {
 		JPanel contentPane = new JPanel();
 		contentPane.setLayout(null);
 		jFrame.setContentPane(contentPane);
+		
 		// TODO
         jFrame.setUndecorated(false);
         jFrame.setVisible(true);
