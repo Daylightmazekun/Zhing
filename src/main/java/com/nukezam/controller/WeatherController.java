@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.nukezam.entity.Weather;
 
 @RestController
-@RequestMapping("/cities")
+@RequestMapping("/")
 public class WeatherController {
 	
 	@Autowired
-	public Weather getCityWeather() {
-		return null;
+	public String getCityWeather() {
+		return "index";
 	}
 
 }

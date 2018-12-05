@@ -1,1 +1,2 @@
-# Create a windows application with java. :£©
+# Create a windows application with java. :)
+  <font color=#FF4500 size=7 face="é»‘ä½“">** Warning: this project is building....**</font>
