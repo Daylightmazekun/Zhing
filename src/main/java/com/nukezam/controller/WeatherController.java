@@ -1,18 +1,15 @@
 package com.nukezam.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
-import com.nukezam.entity.Weather;
 
-@RestController
-@RequestMapping("/")
+@Controller
 public class WeatherController {
 	
-	@Autowired
+	@GetMapping("/index")
 	public String getCityWeather() {
-		return "index";
+		return "redirect:/index";
 	}
 
 }

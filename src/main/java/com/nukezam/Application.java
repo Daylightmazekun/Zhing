@@ -1,6 +1,5 @@
 package com.nukezam;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -27,8 +26,8 @@ public class Application extends WebMvcConfigurationSupport implements CommandLi
         logger.info("服务启动完成!");
     }
 
-    @RequestMapping("/")
+    @RequestMapping("/index")
     String home() {
-        return "redirect:/index.ftl";
+        return "redirect:index";
     }
 }
