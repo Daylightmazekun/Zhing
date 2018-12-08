@@ -7,6 +7,7 @@ import java.net.URL;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -15,9 +16,10 @@ import com.nukezam.Application;
 import com.nukezam.entity.Weather;
 import com.nukezam.service.GetWeather;
 
-public class GetWeatherImpl implements GetWeather {
-	private ObjectMapper mapper;
-    private Logger logger = LoggerFactory.getLogger(Application.class);
+@Service
+public class GetWeatherImpl implements GetWeather {	private ObjectMapper mapper;
+	private Logger logger = LoggerFactory.getLogger(Application.class);
+
 	public String getWeather() throws IOException {
 		// 101190401
 		URL u = new URL(
@@ -37,8 +39,14 @@ public class GetWeatherImpl implements GetWeather {
 		}
 		byte b[] = out.toByteArray();
 		return new String(b, "utf-8");
-		// System.out.println(new String(b,"utf-8"));
+//		System.out.println(new String(b, "utf-8"));
+//		return null;
 	}
+
+//	public static void main(String[] args) throws IOException {
+//		GetWeatherImpl impl = new GetWeatherImpl();
+//		Weather impl1 = impl.jasonToWeather();
+//	}
 
 	@Override
 	public Weather jasonToWeather() {
@@ -47,6 +55,7 @@ public class GetWeatherImpl implements GetWeather {
 		try {
 
 			GetWeatherImpl getWeatherImpl = new GetWeatherImpl();
+			ObjectMapper mapper = new ObjectMapper();
 			// JSON to POJO
 			weather = mapper.readValue(getWeatherImpl.getWeather(), Weather.class);
 			logger.debug("获得天气：" + weather.toString());

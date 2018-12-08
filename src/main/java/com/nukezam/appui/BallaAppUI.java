@@ -9,11 +9,11 @@ public class BallaAppUI {
 		JPanel contentPane = new JPanel();
 		contentPane.setLayout(null);
 		jFrame.setContentPane(contentPane);
-		
+
 		// TODO
-        jFrame.setUndecorated(false);
-        jFrame.setVisible(true);
-        jFrame.setSize(300, 250);
-        jFrame.setLocationRelativeTo(null);
+		jFrame.setUndecorated(false);
+		jFrame.setVisible(true);
+		jFrame.setSize(300, 250);
+		jFrame.setLocationRelativeTo(null);
 	}
 }
