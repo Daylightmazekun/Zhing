@@ -8,7 +8,7 @@ logging:
 druid:
     url: jdbc:mysql://localhost:3306/test
     username: root
-    password:QQpp1111
+    password: QQpp1111
     initial-size: 1
     min-idle: 1
     max-active: 20

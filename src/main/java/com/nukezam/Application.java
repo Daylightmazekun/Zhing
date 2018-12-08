@@ -5,12 +5,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
-@Controller
 @EnableWebMvc
 @SpringBootApplication
 // @MapperScan(basePackages = "")
@@ -26,8 +23,4 @@ public class Application extends WebMvcConfigurationSupport implements CommandLi
         logger.info("服务启动完成!");
     }
 
-    @RequestMapping("/index")
-    String home() {
-        return "redirect:index";
-    }
 }
