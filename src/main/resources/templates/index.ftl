@@ -38,7 +38,7 @@
 <div class="lableimage">
 <img id="image" src="../templates/images/heart.png" href=""/>
 <img id="image" src="../templates/images/middle.png" href=""/>
-<img id="image" src="../templates/images/tomainpage.png" href=""/>
+<img id="image" src="../templates/images/tomainpage.png" href="${request.contextPath}/mainpage"/>
 </div>
 <br>
 <img src="https://img.shields.io/badge/WeiBo-Daylightmazekun-orange.svg" href="https://weibo.com/u/3196240693?is_all=1"/>

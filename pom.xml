@@ -38,7 +38,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-rest</artifactId>
 		</dependency>
-		<!--freemarker -->	
+		<!--freemarker -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-freemarker</artifactId>
@@ -56,10 +56,10 @@
 			<version>RELEASE</version>
 		</dependency>
 		<!--jdbc -->
-       <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
-        </dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
 		<!-- Runtime -->
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -75,15 +75,21 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
-			</dependency>
+		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			</dependency>
+		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-annotations</artifactId>
-			</dependency>
+		</dependency>
+		<!--checkstyle -->
+		<dependency>
+			<groupId>com.puppycrawl.tools</groupId>
+			<artifactId>checkstyle</artifactId>
+			<version>8.15</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -97,9 +103,9 @@
 						<version>1.2.5.RELEASE</version>
 					</dependency>
 				</dependencies>
-				    <configuration>
-        <mainClass>com.nukezam.Application</mainClass>
-    </configuration>
+				<configuration>
+					<mainClass>com.nukezam.Application</mainClass>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.mybatis.generator</groupId>
