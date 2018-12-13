@@ -1,5 +1,13 @@
 package com.nukezam.mapper;
 
-public interface UserInfoMapper {
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
+import com.nukezam.entity.User;
+import com.nukezam.util.MyMapper;
+
+@Mapper
+public interface UserInfoMapper extends MyMapper{
+
+	User findUser(@Param("username") String username, @Param("password") String password);
 }

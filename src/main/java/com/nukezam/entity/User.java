@@ -1,11 +1,18 @@
 package com.nukezam.entity;
 
 public class User {
+	private int id;
 	private int userId;
 	private String userName;
 	private String passWord;
 
 	private String userLevel;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public int getUserId() {
 		return userId;
 	}
