@@ -11,11 +11,11 @@ import com.nukezam.mapper.UserInfoMapper;
 import com.nukezam.service.ValidateUser;
 
 @Service
-public class ValidateUserImpl implements ValidateUser, UserDetailsService{
+public class ValidateUserImpl implements ValidateUser, UserDetailsService {
 
 	@Autowired
 	private UserInfoMapper userInfoMapper;
-	
+
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub

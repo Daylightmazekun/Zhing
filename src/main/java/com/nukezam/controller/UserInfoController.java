@@ -16,6 +16,7 @@ public class UserInfoController {
 
 	@GetMapping("/login")
 	public String validateUser(ModelMap model) throws IOException {
+
 		return null;
 	}
 }

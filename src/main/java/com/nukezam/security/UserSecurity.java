@@ -18,37 +18,30 @@ import com.nukezam.service.impl.ValidateUserImpl;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class UserSecurity extends WebSecurityConfigurerAdapter {
-	
+
 	@Autowired
 	private ValidateUserImpl validateUserImpl;
-	
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        //  允许所有用户访问"/"和"/index.html"
-        http.authorizeRequests()
-                .antMatchers("/", "/index.html").permitAll()
-                .anyRequest().authenticated()   // 其他地址的访问均需验证权限
-                .and()
-                .formLogin()
-                .loginPage("/login.html")   //  登录页
-                .failureUrl("/login-error.html").permitAll()
-                .and()
-                .logout()
-                .logoutSuccessUrl("/index.html");
-    }
 
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/css/**");
-    }
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		// 允许所有用户访问"/"和"/index.html"
+		http.authorizeRequests().antMatchers("/", "/index.html").permitAll().anyRequest().authenticated() // 其他地址的访问均需验证权限
+				.and().formLogin().loginPage("/login.html") // 登录页
+				.failureUrl("/login-error.html").permitAll().and().logout().logoutSuccessUrl("/index.html");
+	}
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(validateUserImpl).passwordEncoder(passwordEncoder());
-    }
+	@Override
+	public void configure(WebSecurity web) throws Exception {
+		web.ignoring().antMatchers("/css/**");
+	}
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(validateUserImpl).passwordEncoder(passwordEncoder());
+	}
+
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 }

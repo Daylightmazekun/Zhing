@@ -23,7 +23,7 @@ public class WeatherController {
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("city", weather.getResult().get(0).getCitynm());
 		map.put("todayWeather", weather.getResult().get(0).getWeather());
-		model.addAttribute("weather",map);
+		model.addAttribute("weather", map);
 		return "index";
 	}
 

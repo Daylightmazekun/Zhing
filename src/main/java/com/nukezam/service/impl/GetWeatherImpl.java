@@ -17,7 +17,8 @@ import com.nukezam.entity.Weather;
 import com.nukezam.service.GetWeather;
 
 @Service
-public class GetWeatherImpl implements GetWeather {	private ObjectMapper mapper;
+public class GetWeatherImpl implements GetWeather {
+	private ObjectMapper mapper;
 	private Logger logger = LoggerFactory.getLogger(Application.class);
 
 	public String getWeather() throws IOException {
