@@ -4,20 +4,12 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class User {
-	private int id;
 	private int userId;
 	private String userName;
-	private String passWord;
+	private String password;
 
 	private String userLevel;
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public int getUserId() {
 		return userId;
@@ -44,10 +36,10 @@ public class User {
 	}
 
 	public String getPassWord() {
-		return passWord;
+		return password;
 	}
 
 	public void setPassWord(String passWord) {
-		this.passWord = passWord;
+		this.password = passWord;
 	}
 }

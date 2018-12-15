@@ -1,5 +1,6 @@
 package com.nukezam.security;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,9 +26,10 @@ public class UserSecurity extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		// 允许所有用户访问"/"和"/index.html"
-		http.authorizeRequests().antMatchers("/", "/index.html").permitAll().anyRequest().authenticated() // 其他地址的访问均需验证权限
-				.and().formLogin().loginPage("/login.html") // 登录页
-				.failureUrl("/login-error.html").permitAll().and().logout().logoutSuccessUrl("/index.html");
+		http.authorizeRequests().antMatchers("/", "/index.ftl").permitAll().anyRequest().authenticated() // 其他地址的访问均需验证权限
+				.and().formLogin().loginPage("/index.ftl") // 登录页
+				.failureUrl("/index.ftl").permitAll().and().logout().logoutSuccessUrl("/index.html").and().formLogin();
+
 	}
 
 	@Override

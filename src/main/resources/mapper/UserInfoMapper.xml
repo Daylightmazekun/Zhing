@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>	
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.nukezam.mapper.UserInfoMapper">
-    <resultMap id="user" type="User">
-        <id property="id" column="id"/>
-        <result property="username" column="username"/>
-        <result property="password" column="password"/>
-        <result property="userlevel" column="userlevel"/>
+    <resultMap id="user" type="com.nukezam.entity.User">
+        <id property="userId" column="USER_ID"/>
+        <result property="userName" column="USER_NAME"/>
+        <result property="password" column="USER_PASSWORD"/>
+        <result property="userLevel" column="USER_LEVEL"/>
     </resultMap>
     <select id="findUser" resultMap = "user">
         SELECT
-         USER.USER_NAME, USER.USER_PASSWORD, USER.USER_LEVEL
+         USER.USER_ID, USER.USER_NAME, USER.USER_PASSWORD, USER.USER_LEVEL
         FROM USER
         WHERE
           USER.USER_NAME = #{userName}

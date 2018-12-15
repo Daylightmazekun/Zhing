@@ -4,19 +4,29 @@ import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.nukezam.entity.User;
 import com.nukezam.service.impl.ValidateUserImpl;
 
 @Controller
 public class UserInfoController {
 	@Autowired
 	private ValidateUserImpl validateUserImpl;
-
-	@GetMapping("/login")
-	public String validateUser(ModelMap model) throws IOException {
-
-		return null;
+	
+	@PostMapping("/login")
+	public ModelAndView  validateUser(User user) throws IOException {
+		User getUser = new User();
+		getUser = validateUserImpl.getUserByName(user.getUserName(), user.getPassWord());
+		ModelAndView result = new ModelAndView();
+		if(getUser == null) {
+			result.setViewName("index");
+			return result;
+		}
+	
+		result.setViewName("homepage");
+		result.addObject("user", getUser);
+		return result;
 	}
 }
