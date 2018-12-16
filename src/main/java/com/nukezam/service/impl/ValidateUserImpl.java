@@ -18,8 +18,14 @@ public class ValidateUserImpl implements ValidateUser, UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+
+	User user = userService.findBySso(username);
+	if(user==null){
+		logger.info("User not found");
+		throw new UsernameNotFoundException("Username not found");
+	}
+		return new org.springframework.security.core.userdetails.User(user.getSso_id(), user.getPassword(), 
+			 user.getState().equals("Active"), true, true, true, getGrantedAuthorities(user));
 	}
 
 	@Override
