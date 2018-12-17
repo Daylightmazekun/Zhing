@@ -22,17 +22,20 @@
  * THE SOFTWARE.
  */
 .body {
-background-color: #F2F8FB;
+    background-color: #F2F8FB;
 }
-.wrapper{
-text-align:center
+
+.wrapper {
+    text-align: center
 }
-.slogan{
-padding: 50px 0 20px;
+
+.slogan {
+    padding: 50px 0 20px;
 }
-#image{
-width:35px;
-height:35px;
-margin:35px;
+
+#image {
+    width: 35px;
+    height: 35px;
+    margin: 35px;
 }
 

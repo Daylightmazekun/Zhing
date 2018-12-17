@@ -13,17 +13,17 @@ import com.nukezam.service.impl.GetWeatherImpl;
 
 @Controller
 public class WeatherController {
-	@Autowired
-	private GetWeatherImpl getWeatherImpl;
+    @Autowired
+    private GetWeatherImpl getWeatherImpl;
 
-	@GetMapping("/")
-	public String getHomePage(ModelMap model) throws IOException {
-		Weather weather = getWeatherImpl.jasonToWeather();
-		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("city", weather.getResult().get(0).getCitynm());
-		map.put("todayWeather", weather.getResult().get(0).getWeather());
-		model.addAttribute("weather", map);
-		return "index";
-	}
+    @GetMapping("/")
+    public String getHomePage(ModelMap model) throws IOException {
+        Weather weather = getWeatherImpl.jasonToWeather();
+        HashMap<String, String> map = new HashMap<String, String>();
+        map.put("city", weather.getResult().get(0).getCitynm());
+        map.put("todayWeather", weather.getResult().get(0).getWeather());
+        model.addAttribute("weather", map);
+        return "index";
+    }
 
 }

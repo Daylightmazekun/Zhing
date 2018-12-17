@@ -6,5 +6,8 @@ import com.nukezam.entity.User;
 
 @Service
 public interface ValidateUser {
-	User getUserByName(String username, String password);
+    User getUserByName(String username, String password);
+
+    User loadUserByUsername(String username);
+
 }

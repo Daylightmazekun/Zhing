@@ -12,15 +12,15 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 @SpringBootApplication
 // @MapperScan(basePackages = "")
 public class Application extends WebMvcConfigurationSupport implements CommandLineRunner {
-	private Logger logger = LoggerFactory.getLogger(Application.class);
+    private Logger logger = LoggerFactory.getLogger(Application.class);
 
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
 
-	@Override
-	public void run(String... args) throws Exception {
-		logger.info("服务启动完成!");
-	}
+    @Override
+    public void run(String... args) throws Exception {
+        logger.info("服务启动完成!");
+    }
 
 }

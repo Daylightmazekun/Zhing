@@ -5,44 +5,44 @@ import org.springframework.stereotype.Component;
 @Component
 public class Article {
 
-	private int articleId;
+    private int articleId;
 
-	private String articleTitle;
+    private String articleTitle;
 
-	private String articleTag;
+    private String articleTag;
 
-	private String article;
+    private String article;
 
-	public int getArticleId() {
-		return articleId;
-	}
+    public int getArticleId() {
+        return articleId;
+    }
 
-	public void setArticleId(int articleId) {
-		this.articleId = articleId;
-	}
+    public void setArticleId(int articleId) {
+        this.articleId = articleId;
+    }
 
-	public String getArticleTitle() {
-		return articleTitle;
-	}
+    public String getArticleTitle() {
+        return articleTitle;
+    }
 
-	public void setArticleTitle(String articleTitle) {
-		this.articleTitle = articleTitle;
-	}
+    public void setArticleTitle(String articleTitle) {
+        this.articleTitle = articleTitle;
+    }
 
-	public String getArticleTag() {
-		return articleTag;
-	}
+    public String getArticleTag() {
+        return articleTag;
+    }
 
-	public void setArticleTag(String articleTag) {
-		this.articleTag = articleTag;
-	}
+    public void setArticleTag(String articleTag) {
+        this.articleTag = articleTag;
+    }
 
-	public String getArticle() {
-		return article;
-	}
+    public String getArticle() {
+        return article;
+    }
 
-	public void setArticle(String article) {
-		this.article = article;
-	}
+    public void setArticle(String article) {
+        this.article = article;
+    }
 
 }

@@ -10,7 +10,7 @@ import com.nukezam.entity.Weather;
 @Service
 public interface GetWeather {
 
-	public String getWeather() throws MalformedURLException, IOException;
+    public String getWeather() throws MalformedURLException, IOException;
 
-	public Weather jasonToWeather();
+    public Weather jasonToWeather();
 }

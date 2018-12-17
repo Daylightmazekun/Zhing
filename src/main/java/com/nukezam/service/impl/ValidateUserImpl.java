@@ -1,6 +1,5 @@
 package com.nukezam.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -10,27 +9,20 @@ import com.nukezam.entity.User;
 import com.nukezam.mapper.UserInfoMapper;
 import com.nukezam.service.ValidateUser;
 
+import javax.annotation.Resource;
+
 @Service
-public class ValidateUserImpl implements ValidateUser, UserDetailsService {
+public class ValidateUserImpl implements ValidateUser {
 
-	@Autowired
-	private UserInfoMapper userInfoMapper;
+    @Resource
+    private UserInfoMapper userInfoMapper;
 
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-
-	User user = userService.findBySso(username);
-	if(user==null){
-		logger.info("User not found");
-		throw new UsernameNotFoundException("Username not found");
-	}
-		return new org.springframework.security.core.userdetails.User(user.getSso_id(), user.getPassword(), 
-			 user.getState().equals("Active"), true, true, true, getGrantedAuthorities(user));
-	}
-
-	@Override
-	public User getUserByName(String username, String password) {
-		return userInfoMapper.findUser(username, password);
-	}
-
+    @Override
+    public User getUserByName(String username, String password) {
+        return userInfoMapper.findUser(username, password);
+    }
+    @Override
+    public User loadUserByUsername(String username) {
+        return userInfoMapper.findUserByName(username);
+    }
 }

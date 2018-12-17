@@ -12,21 +12,21 @@ import com.nukezam.service.impl.ValidateUserImpl;
 
 @Controller
 public class UserInfoController {
-	@Autowired
-	private ValidateUserImpl validateUserImpl;
-	
-	@PostMapping("/login")
-	public ModelAndView  validateUser(User user) throws IOException {
-		User getUser = new User();
-		getUser = validateUserImpl.getUserByName(user.getUserName(), user.getPassWord());
-		ModelAndView result = new ModelAndView();
-		if(getUser == null) {
-			result.setViewName("index");
-			return result;
-		}
-	
-		result.setViewName("homepage");
-		result.addObject("user", getUser);
-		return result;
-	}
+    @Autowired
+    private ValidateUserImpl validateUserImpl;
+
+    @PostMapping("/login")
+    public ModelAndView validateUser(User user) throws IOException {
+        User getUser = new User();
+        getUser = validateUserImpl.getUserByName(user.getUserName(), user.getPassWord());
+        ModelAndView result = new ModelAndView();
+        if (getUser == null) {
+            result.setViewName("index");
+            return result;
+        }
+
+        result.setViewName("homepage");
+        result.addObject("user", getUser);
+        return result;
+    }
 }
