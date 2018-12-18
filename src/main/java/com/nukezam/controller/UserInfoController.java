@@ -21,7 +21,7 @@ public class UserInfoController {
         getUser = validateUserImpl.getUserByName(user.getUserName(), user.getPassWord());
         ModelAndView result = new ModelAndView();
         if (getUser == null) {
-            result.setViewName("index");
+            result.setViewName("login");
             return result;
         }
 

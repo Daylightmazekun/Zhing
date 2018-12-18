@@ -14,22 +14,20 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.nukezam.service.impl.ValidateUserImpl;
-
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class UserSecurity extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private ValidateUserImpl validateUserImpl;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        // 允许所有用户访问"/"和"/index.html"
-        http.authorizeRequests().antMatchers("/", "/index.ftl").permitAll().anyRequest().authenticated() // 其他地址的访问均需验证权限
-                .and().formLogin().loginPage("/index.ftl") // 登录页
-                .failureUrl("/index.ftl").permitAll().and().logout().logoutSuccessUrl("/index.html").and().formLogin();
+        http.csrf().disable();
+        http.authorizeRequests().antMatchers("/").permitAll()
+                .antMatchers("/mine/**").authenticated()
+                .and().rememberMe().tokenValiditySeconds(3600)
+                .and().formLogin().loginPage("/index").defaultSuccessUrl("/homepage").permitAll()
+                .and().logout().logoutUrl("/logout").permitAll();
 
     }
 

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 public class User {
     private int userId;
     private String userName;
-    private String password;
+    private String passWord;
     private String userLevel;
     private Boolean enabled;
 
@@ -43,10 +43,10 @@ public class User {
     }
 
     public String getPassWord() {
-        return password;
+        return passWord;
     }
 
     public void setPassWord(String passWord) {
-        this.password = passWord;
+        this.passWord = passWord;
     }
 }

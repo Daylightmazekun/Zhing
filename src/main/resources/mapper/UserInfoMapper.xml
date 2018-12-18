@@ -4,29 +4,29 @@
     <resultMap id="user" type="com.nukezam.entity.User">
         <id property="userId" column="USER_ID"/>
         <result property="userName" column="USER_NAME"/>
-        <result property="password" column="USER_PASSWORD"/>
+        <result property="passWord" column="PASSWORD"/>
         <result property="userLevel" column="USER_LEVEL"/>
     </resultMap>
     <select id="findUser" resultMap="user">
         SELECT
-         USER.USER_ID, USER.USER_NAME, USER.USER_PASSWORD, USER.USER_LEVEL
-        FROM USER
+         t_user.USER_ID, t_user.USER_NAME, t_user.PASSWORD, t_user.USER_LEVEL
+        FROM t_user
         WHERE
-          USER.USER_NAME = #{userName}
+          t_user.USER_NAME = #{userName}
           AND 
-          USER.USER_PASSWORD = #{password}
+          t_user.PASSWORD = #{passWord}
     </select>
 
         <resultMap id="userbyname" type="com.nukezam.entity.User">
             <id property="userId" column="USER_ID"/>
             <result property="userName" column="USER_NAME"/>
-            <result property="password" column="USER_PASSWORD"/>
+            <result property="passWord" column="PASSWORD"/>
         </resultMap>
         <select id="findUserByName" resultMap="userbyname">
         SELECT
-         USER.USER_ID, USER.USER_NAME
-        FROM USER
+         t_user.USER_ID, t_user.USER_NAME
+        FROM t_user
         WHERE
-          USER.USER_NAME = #{userName}
+          t_user.USER_NAME = #{userName}
     </select>
 </mapper>
