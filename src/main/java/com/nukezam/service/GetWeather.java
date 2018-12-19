@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.nukezam.entity.Weather;
 
-@Service
+
 public interface GetWeather {
 
     public String getWeather() throws MalformedURLException, IOException;

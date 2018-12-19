@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 
 @EnableWebMvc
 @SpringBootApplication
-// @MapperScan(basePackages = "")
+
 public class Application extends WebMvcConfigurationSupport implements CommandLineRunner {
     private Logger logger = LoggerFactory.getLogger(Application.class);
 

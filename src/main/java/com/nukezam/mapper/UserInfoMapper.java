@@ -8,7 +8,7 @@ import com.nukezam.entity.User;
 @Mapper
 public interface UserInfoMapper {
 
-    User findUser(@Param("username") String username, @Param("password") String password);
+    User findUser(@Param("userName") String username, @Param("passWord") String password);
 
-    User findUserByName(@Param("username") String username);
+    User findUserByName(@Param("userName") String username);
 }

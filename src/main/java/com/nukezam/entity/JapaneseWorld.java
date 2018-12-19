@@ -3,9 +3,11 @@ package com.nukezam.entity;
 import org.springframework.stereotype.Component;
 
 @Component
-public class JanpaneseWorld {
+public class JapaneseWorld {
 
     private int worldId;
+
+    private int userId;
 
     private String worldName;
 
@@ -15,6 +17,13 @@ public class JanpaneseWorld {
         return worldId;
     }
 
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
     public void setWorldId(int worldId) {
         this.worldId = worldId;
     }

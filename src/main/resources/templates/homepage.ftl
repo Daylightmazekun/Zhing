@@ -21,6 +21,8 @@
 /__/ |__  | \  |__/ |  /      |  / |__/|
 </pre>
 
+
+    <a href="/japanese">japanese</a>
 </div>
 
 </body>
