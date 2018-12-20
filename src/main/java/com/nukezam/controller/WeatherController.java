@@ -23,7 +23,7 @@ public class WeatherController {
         map.put("city", weather.getResult().get(0).getCitynm());
         map.put("todayWeather", weather.getResult().get(0).getWeather());
         model.addAttribute("weather", map);
-        return "index";
+        return "login";
     }
 
 }

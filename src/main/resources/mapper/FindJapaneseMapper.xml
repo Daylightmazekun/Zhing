@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nukezam.mapper.FindJapaneseMapper">
+    <resultMap id="japanese" type="com.nukezam.entity.JapaneseWord">
+        <id property="wordId" column="WORLD_ID"/>
+        <result property="userId" column="USER_ID"/>
+        <result property="wordName" column="WORD_NAME"/>
+        <result property="wordKana" column="WORD_KANA"/>
+        <result property="wordIMi" column="WORD_IMI"/>
+        <result property="taDoEBa" column="TADOEBA"/>
+    </resultMap>
+    <select id="findJapaneseByUserId" resultMap="japanese">
+        SELECT
+         t_japanese.USER_ID, t_japanese.WORLD_ID, t_japanese.WORD_NAME, t_japanese.WORD_KANA
+         ,t_japanese.WORD_IMI, t_japanese.TADOEBA
+        FROM t_japanese
+        WHERE
+          t_japanese.USER_ID = #{userId}
+    </select>
+
+</mapper>

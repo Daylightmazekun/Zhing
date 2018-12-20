@@ -17,17 +17,15 @@ public class UserInfoController {
     private ValidateUser validateUser;
 
     @PostMapping("/login")
-    public ModelAndView validateUser(User user) throws IOException {
+    public String validateUser(User user) throws IOException {
         User getUser = new User();
         getUser = validateUser.getUserByName(user.getUserName(), user.getPassWord());
         ModelAndView result = new ModelAndView();
         if (getUser == null) {
-            result.setViewName("login");
-            return result;
+            return "relogin";
         }
 
-        result.setViewName("homepage");
         result.addObject("user", getUser);
-        return result;
+        return "homepage";
     }
 }

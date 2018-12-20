@@ -25,7 +25,7 @@ public class UserSecurity extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/").permitAll()
                 .antMatchers("/mine/**").authenticated()
                 .and().rememberMe().tokenValiditySeconds(3600)
-                .and().formLogin().loginPage("/index").defaultSuccessUrl("/homepage").permitAll()
+                .and().formLogin().loginPage("/login").defaultSuccessUrl("/homepage").permitAll()
                 .and().logout().logoutUrl("/logout").permitAll();
 
     }

@@ -25,19 +25,28 @@ import java.util.List;
 @EnableWebSecurity
 public class CustomAuthenticationProvider implements AuthenticationProvider {
 
+    private User user;
+
+    public CustomAuthenticationProvider(User user){
+        this.user = user;
+    }
+
     @Autowired
     private ValidateUser validateUser;
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         UsernamePasswordAuthenticationToken token = (UsernamePasswordAuthenticationToken) authentication;
         String username = token.getName();
-        User user = null;
+        User userV = null;
         if (username != null) {
-            user = validateUser.loadUserByUsername(username);
+            userV = validateUser.loadUserByUsername(username);
         }
-        if (user == null) {
+        else{
+            userV = validateUser.loadUserByUsername(user.getUserName());
+        }
+        if (userV == null) {
             throw new UsernameNotFoundException("用户名/密码无效");
-        } else if (user.isEnabled()) {
+        } else if (userV.isEnabled()) {
             throw new DisabledException("用户已被禁用");
         }
 //        } else if (user.isAccountNonExpired()) {
@@ -48,7 +57,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 //            throw new LockedException("凭证已过期");
 //        }
         //数据库用户的密码
-        String password = user.getPassWord();
+        String password = userV.getPassWord();
         String pwdDigest = Md5Util.pwdDigest(token.getCredentials().toString());
         //与authentication里面的credentials相比较
         if (!password.equals(pwdDigest)) {
@@ -57,9 +66,9 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         }
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         HttpSession session = request.getSession();
-        session.setAttribute("user",user);
+        session.setAttribute("user",userV);
         //授权
-        return new UsernamePasswordAuthenticationToken(user, password, getAuthorities());
+        return new UsernamePasswordAuthenticationToken(userV, password, getAuthorities());
     }
 
     @Override
