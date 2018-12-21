@@ -68,7 +68,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         HttpSession session = request.getSession();
         session.setAttribute("user",userV);
         //授权
-        return new UsernamePasswordAuthenticationToken(userV, password, getAuthorities());
+        return new UsernamePasswordAuthenticationToken(userV, password, getAuthorities(userV.getUserLevel()));
     }
 
     @Override
@@ -76,7 +76,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         return UsernamePasswordAuthenticationToken.class.equals(authentication);
     }
 
-    public Collection<? extends GrantedAuthority> getAuthorities() {
+    public Collection<? extends GrantedAuthority> getAuthorities(String userLevel) {
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
         return authorities;
