@@ -19,7 +19,7 @@ public class UserInfoController {
     @PostMapping("/login")
     public String validateUser(User user) throws IOException {
         User getUser = new User();
-        getUser = validateUser.getUserByName(user.getUserName(), user.getPassWord());
+        getUser = validateUser.getUserByName(user.getUsername(), user.getPassword());
         ModelAndView result = new ModelAndView();
         if (getUser == null) {
             return "relogin";

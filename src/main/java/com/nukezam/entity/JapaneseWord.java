@@ -5,47 +5,47 @@ import org.springframework.stereotype.Component;
 @Component
 public class JapaneseWord {
 
-    private int worldId;
+    private int worldid;
 
-    private int userId;
+    private int userid;
 
-    private String wordName;
+    private String wordname;
 
     private String wordKana;
 
 
-    private String wordIMi;
-    private String taDoEBa;
+    private String wordimi;
+    private String tadoeba;
 
-    public String getTaDoEBa() {
-        return taDoEBa;
+    public String getTadoeba() {
+        return tadoeba;
     }
 
-    public void setTaDoEBa(String taDoEBa) {
-        this.taDoEBa = taDoEBa;
+    public void setTadoeba(String tadoeba) {
+        this.tadoeba = tadoeba;
     }
 
-    public int getWorldId() {
-        return worldId;
+    public int getWorldid() {
+        return worldid;
     }
 
-    public int getUserId() {
-        return userId;
+    public int getUserid() {
+        return userid;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUserid(int userid) {
+        this.userid = userid;
     }
-    public void setWorldId(int worldId) {
-        this.worldId = worldId;
-    }
-
-    public String getWordName() {
-        return wordName;
+    public void setWorldid(int worldid) {
+        this.worldid = worldid;
     }
 
-    public void setWordName(String wordName) {
-        this.wordName = wordName;
+    public String getWordname() {
+        return wordname;
+    }
+
+    public void setWordname(String wordname) {
+        this.wordname = wordname;
     }
 
     public String getWordKana() {
@@ -56,11 +56,11 @@ public class JapaneseWord {
         this.wordKana = wordKana;
     }
 
-    public String getWordIMi() {
-        return wordIMi;
+    public String getWordimi() {
+        return wordimi;
     }
 
-    public void setWordIMi(String wordIMi) {
-        this.wordIMi = wordIMi;
+    public void setWordimi(String wordimi) {
+        this.wordimi = wordimi;
     }
 }

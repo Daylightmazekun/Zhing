@@ -4,10 +4,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class User {
-    private int userId;
-    private String userName;
-    private String passWord;
-    private String userLevel;
+    private int userid;
+    private String username;
+    private String password;
+    private String userlevel;
     private Boolean enabled;
 
     public Boolean isEnabled() {
@@ -18,35 +18,35 @@ public class User {
         this.enabled = enabled;
     }
 
-    public int getUserId() {
-        return userId;
+    public int getUserid() {
+        return userid;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUserid(int userid) {
+        this.userid = userid;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getUserLevel() {
-        return userLevel;
+    public String getUserlevel() {
+        return userlevel;
     }
 
-    public void setUserLevel(String userLevel) {
-        this.userLevel = userLevel;
+    public void setUserlevel(String userlevel) {
+        this.userlevel = userlevel;
     }
 
-    public String getPassWord() {
-        return passWord;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

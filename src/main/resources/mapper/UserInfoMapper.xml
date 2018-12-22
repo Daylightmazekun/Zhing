@@ -2,31 +2,30 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.nukezam.mapper.UserInfoMapper">
     <resultMap id="user" type="com.nukezam.entity.User">
-        <id property="userId" column="USER_ID"/>
-        <result property="userName" column="USER_NAME"/>
-        <result property="passWord" column="PASSWORD"/>
-        <result property="userLevel" column="USER_LEVEL"/>
+        <id property="userid" column="USER_ID"/>
+        <result property="username" column="USER_NAME"/>
+        <result property="password" column="PASSWORD"/>
+        <result property="userlevel" column="USER_LEVEL"/>
     </resultMap>
     <select id="validateUser" resultMap="user">
         SELECT
          t_user.USER_ID, t_user.USER_NAME, t_user.PASSWORD, t_user.USER_LEVEL
         FROM t_user
         WHERE
-          t_user.USER_NAME = #{userName}
+          t_user.USER_NAME = #{username}
           AND 
-          t_user.PASSWORD = #{passWord}
+          t_user.PASSWORD = #{password}
     </select>
 
         <resultMap id="userbyname" type="com.nukezam.entity.User">
-            <id property="userId" column="USER_ID"/>
-            <result property="userName" column="USER_NAME"/>
-            <result property="passWord" column="PASSWORD"/>
+            <id property="userid" column="USER_ID"/>
+            <result property="username" column="USER_NAME"/>
         </resultMap>
         <select id="findUserByName" resultMap="userbyname">
         SELECT
          t_user.USER_ID, t_user.USER_NAME
         FROM t_user
         WHERE
-          t_user.USER_NAME = #{userName}
+          t_user.USER_NAME = #{username}
     </select>
 </mapper>

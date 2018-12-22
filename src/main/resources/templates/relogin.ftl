@@ -28,11 +28,11 @@
             <table align="center">
                 <tr>
                     <td>用户名：</td>
-                    <td><input type="text" name="userName"></td>
+                    <td><input type="text" name="username"></td>
                 </tr>
                 <tr>
                     <td>密码：</td>
-                    <td><input type="password" name="passWord"></td>
+                    <td><input type="password" name="password"></td>
                 </tr>
                 <tr>
                     <td colspan="2">

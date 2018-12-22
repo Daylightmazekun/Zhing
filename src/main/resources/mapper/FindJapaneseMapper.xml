@@ -3,11 +3,11 @@
 <mapper namespace="com.nukezam.mapper.FindJapaneseMapper">
     <resultMap id="japanese" type="com.nukezam.entity.JapaneseWord">
         <id property="wordId" column="WORLD_ID"/>
-        <result property="userId" column="USER_ID"/>
-        <result property="wordName" column="WORD_NAME"/>
-        <result property="wordKana" column="WORD_KANA"/>
-        <result property="wordIMi" column="WORD_IMI"/>
-        <result property="taDoEBa" column="TADOEBA"/>
+        <result property="userid" column="USER_ID"/>
+        <result property="wordname" column="WORD_NAME"/>
+        <result property="wordkana" column="WORD_KANA"/>
+        <result property="wordimi" column="WORD_IMI"/>
+        <result property="tadoeba" column="TADOEBA"/>
     </resultMap>
     <select id="findJapaneseByUserId" resultMap="japanese">
         SELECT
@@ -15,7 +15,7 @@
          ,t_japanese.WORD_IMI, t_japanese.TADOEBA
         FROM t_japanese
         WHERE
-          t_japanese.USER_ID = #{userId}
+          t_japanese.USER_ID = #{userid}
     </select>
 
 </mapper>

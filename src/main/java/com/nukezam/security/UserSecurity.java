@@ -1,6 +1,7 @@
 package com.nukezam.security;
 
 
+import com.nukezam.entity.User;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -25,7 +26,7 @@ public class UserSecurity extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/").permitAll()
                 .antMatchers("/mine/**").authenticated()
                 .and().rememberMe().tokenValiditySeconds(3600)
-                .and().formLogin().loginPage("/login").defaultSuccessUrl("/homepage").permitAll()
+                .and().formLogin().loginProcessingUrl("/login").loginPage("/login").defaultSuccessUrl("/homepage").permitAll()
                 .and().logout().logoutUrl("/logout").permitAll();
 
     }
@@ -38,11 +39,6 @@ public class UserSecurity extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationProvider());
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
     }
 
     @Bean

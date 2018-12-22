@@ -16,7 +16,7 @@
 
         <jdbcConnection driverClass="${druid.driver-class}"
                         connectionURL="${druid.url}"
-                        userId="${druid.username}"
+                        userid="${druid.username}"
                         password="${druid.password}">
         </jdbcConnection>
 

@@ -49,15 +49,15 @@
     <img src="https://img.shields.io/badge/Github-Daylightmazekun-red.svg" href=""/>
 
     <div class="panel-body">
-        <form id="loginForm" action="/login" method="post">
+        <form id="loginForm" action="/login_check" method="post">
             <table align="center">
                 <tr>
                     <td>用户名：</td>
-                    <td><input type="text" name="userName"></td>
+                    <td><input type="text" name="username"></td>
                 </tr>
                 <tr>
                     <td>密码：</td>
-                    <td><input type="password" name="passWord"></td>
+                    <td><input type="password" name="password"></td>
                 </tr>
                 <tr>
                     <td colspan="2">

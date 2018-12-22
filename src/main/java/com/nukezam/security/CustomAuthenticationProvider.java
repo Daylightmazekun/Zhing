@@ -25,30 +25,22 @@ import java.util.List;
 @EnableWebSecurity
 public class CustomAuthenticationProvider implements AuthenticationProvider {
 
-    private User user;
-
-    public CustomAuthenticationProvider(User user){
-        this.user = user;
-    }
-
     @Autowired
     private ValidateUser validateUser;
+
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         UsernamePasswordAuthenticationToken token = (UsernamePasswordAuthenticationToken) authentication;
         String username = token.getName();
         User userV = null;
-        if (username != null) {
-            userV = validateUser.loadUserByUsername(username);
-        }
-        else{
-            userV = validateUser.loadUserByUsername(user.getUserName());
-        }
+        userV = validateUser.loadUserByUsername(username);
+
         if (userV == null) {
             throw new UsernameNotFoundException("用户名/密码无效");
-        } else if (userV.isEnabled()) {
-            throw new DisabledException("用户已被禁用");
         }
+//        else if (userV.isEnabled()) {
+//            throw new DisabledException("用户已被禁用");
+//        }
 //        } else if (user.isAccountNonExpired()) {
 //            throw new AccountExpiredException("账号已过期");
 //        } else if (user.isAccountNonLocked()) {
@@ -57,7 +49,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 //            throw new LockedException("凭证已过期");
 //        }
         //数据库用户的密码
-        String password = userV.getPassWord();
+        String password = userV.getPassword();
         String pwdDigest = Md5Util.pwdDigest(token.getCredentials().toString());
         //与authentication里面的credentials相比较
         if (!password.equals(pwdDigest)) {
@@ -66,9 +58,9 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         }
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         HttpSession session = request.getSession();
-        session.setAttribute("user",userV);
+        session.setAttribute("user", userV);
         //授权
-        return new UsernamePasswordAuthenticationToken(userV, password, getAuthorities(userV.getUserLevel()));
+        return new UsernamePasswordAuthenticationToken(userV, password, getAuthorities(userV.getUserlevel()));
     }
 
     @Override
@@ -78,7 +70,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
     public Collection<? extends GrantedAuthority> getAuthorities(String userLevel) {
         List<GrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        authorities.add(new SimpleGrantedAuthority(userLevel));
         return authorities;
     }
 }
