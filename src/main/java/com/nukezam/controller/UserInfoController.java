@@ -2,30 +2,17 @@ package com.nukezam.controller;
 
 import java.io.IOException;
 
-import com.nukezam.service.ValidateUser;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.ModelAndView;
-
 import com.nukezam.entity.User;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
 public class UserInfoController {
-    @Autowired
-    private ValidateUser validateUser;
 
-    @PostMapping("/login")
-    public String validateUser(User user) throws IOException {
-        User getUser = new User();
-        getUser = validateUser.getUserByName(user.getUsername(), user.getPassword());
-        ModelAndView result = new ModelAndView();
-        if (getUser == null) {
-            return "relogin";
-        }
+    @RequestMapping("/homepage")
+    public String homepage(User user) throws IOException {
 
-        result.addObject("user", getUser);
         return "homepage";
     }
 }

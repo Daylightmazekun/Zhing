@@ -49,7 +49,7 @@
     <img src="https://img.shields.io/badge/Github-Daylightmazekun-red.svg" href=""/>
 
     <div class="panel-body">
-        <form id="loginForm" action="/login_check" method="post">
+        <form id="loginForm" action="/login" method="post">
             <table align="center">
                 <tr>
                     <td>用户名：</td>

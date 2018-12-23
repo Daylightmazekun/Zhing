@@ -20,10 +20,12 @@
         <resultMap id="userbyname" type="com.nukezam.entity.User">
             <id property="userid" column="USER_ID"/>
             <result property="username" column="USER_NAME"/>
+            <result property="password" column="PASSWORD"/>
+            <result property="userlevel" column="USER_LEVEL"/>
         </resultMap>
         <select id="findUserByName" resultMap="userbyname">
         SELECT
-         t_user.USER_ID, t_user.USER_NAME
+         t_user.USER_ID, t_user.USER_NAME, t_user.PASSWORD, t_user.USER_LEVEL
         FROM t_user
         WHERE
           t_user.USER_NAME = #{username}

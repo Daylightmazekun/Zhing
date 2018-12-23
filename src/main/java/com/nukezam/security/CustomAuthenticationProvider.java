@@ -56,9 +56,9 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
             throw new BadCredentialsException("Invalid username/password");
         }
-        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-        HttpSession session = request.getSession();
-        session.setAttribute("user", userV);
+//        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+//        HttpSession session = request.getSession();
+//        session.setAttribute("user", userV);
         //授权
         return new UsernamePasswordAuthenticationToken(userV, password, getAuthorities(userV.getUserlevel()));
     }

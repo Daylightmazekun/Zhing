@@ -4,11 +4,15 @@ import java.security.MessageDigest;
 
 public class Md5Util {
 
-    public static final String PWD_CONST = "EumJi025";
+    public static final String PWD_CONST = "Mazekun";
 
     public static String pwdDigest(String password){
         return digest(password+PWD_CONST);
     }
+
+//    public static void main(String[] args){
+//        System.out.print(pwdDigest("QQpp1111"));
+//    }
 
     private final static String digest(String s) {
         char hexDigits[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
