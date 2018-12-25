@@ -15,7 +15,7 @@
          ,t_japanese.WORD_IMI, t_japanese.TADOEBA
         FROM t_japanese
         WHERE
-          t_japanese.USER_ID = #{userid}
+          t_japanese.USER_ID = #{userId}
     </select>
 
 </mapper>

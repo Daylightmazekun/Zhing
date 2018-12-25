@@ -11,5 +11,5 @@ import java.util.List;
 @Mapper
 public interface FindJapaneseMapper extends MyMapper<JapaneseWord> {
 
-    List<JapaneseWord> findJapaneseByUserId(@Param("userId") String userId);
+    List<JapaneseWord> findJapaneseByUserId(@Param("userId") int userId);
 }

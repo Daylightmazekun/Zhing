@@ -1,9 +1,10 @@
 package com.nukezam.service;
 
 import com.nukezam.entity.JapaneseWord;
-import com.nukezam.entity.User;
+
+import java.util.List;
 
 public interface Japanese {
 
-    JapaneseWord findJapaneseByUserId(User user);
+    List<JapaneseWord> findJapaneseByUserId(int userId);
 }

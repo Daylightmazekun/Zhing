@@ -27,7 +27,7 @@
         <th>City：</th>
         <th>${weather.city}</th>
         <th>Weather：</th>
-        <# if weather.todayWeather == "晴">
+        <#if weather.todayWeather == "晴">
         <th>
             <div class="sun"></div>
         </th>

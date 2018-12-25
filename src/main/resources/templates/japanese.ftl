@@ -21,7 +21,8 @@
 /__/ |__  | \  |__/ |  /      |  / |__/|
 </pre>
 
-
+    <a name = "userid">${user.id}</a>
+    <a name = "username">${user.name}</a>
     <button type="button">开始</button>
     <button type="button">输入</button>
     <button type="button">全部</button>
@@ -108,14 +109,14 @@
         </tr>
             </thead>
             <tbody>
-            <#list pageInfo.list as country>
+            <#list pageInfo.list as janpanese>
                 <tr>
-                <td>${country.id}</td>
-                <td>${country.countryname}</td>
-                <td>${country.countrycode}</td>
+                <td>${janpanese.id}</td>
+                <td>${janpanese.countryname}</td>
+                <td>${janpanese.countrycode}</td>
                 <td style="text-align:center;">[<a
-            href="${request.contextPath}/countries/view/${country.id}">修改</a>] -
-            [<a href="${request.contextPath}/countries/delete/${country.id}">删除</a>]
+            href="${request.contextPath}/janpanese/view/${janpanese.id}">修改</a>] -
+            [<a href="${request.contextPath}/janpanese/delete/${janpanese.id}">删除</a>]
                 </td>
                 </tr>
             </#list>
@@ -125,10 +126,10 @@
             <tr>
             <#if pageInfo.hasPreviousPage>
                 <td>
-                <a href="${request.contextPath}/countries?page=1&rows=${pageInfo.pageSize}&countryname=${queryParam.countryname}&countrycode=${queryParam.countrycode}">首页</a>
+                <a href="${request.contextPath}/janpanese?page=1&rows=${pageInfo.pageSize}&countryname=${queryParam.countryname}&countrycode=${queryParam.countrycode}">首页</a>
                 </td>
                 <td>
-                <a href="${request.contextPath}/countries?page=${pageInfo.prePage}&rows=${pageInfo.pageSize}&countryname=${queryParam.countryname}&countrycode=${queryParam.countrycode}">前一页</a>
+                <a href="${request.contextPath}/janpanese?page=${pageInfo.prePage}&rows=${pageInfo.pageSize}&countryname=${queryParam.countryname}&countrycode=${queryParam.countrycode}">前一页</a>
                 </td>
             </#if>
             <#list pageInfo.navigatepageNums as nav>
@@ -137,7 +138,7 @@
                 </#if>
                 <#if nav != pageInfo.pageNum>
                     <td>
-                    <a href="${request.contextPath}/countries?page=${nav}&rows=${pageInfo.pageSize}&countryname=<#if queryParam.countryname??>${queryParam.countryname}</#if>&countrycode=<#if queryParam.countrycode??>${queryParam.countrycode}</#if>">${nav}</a>
+                    <a href="${request.contextPath}/janpanese?page=${nav}&rows=${pageInfo.pageSize}&countryname=<#if queryParam.countryname??>${queryParam.countryname}</#if>&countrycode=<#if queryParam.countrycode??>${queryParam.countrycode}</#if>">${nav}</a>
                     </td>
                 </#if>
             </#list>
