@@ -31,6 +31,7 @@
         <th>
             <div class="sun"></div>
         </th>
+        </#if>
     </tr>
     <br>
     <br>

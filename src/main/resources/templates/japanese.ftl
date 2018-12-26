@@ -4,7 +4,23 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="Author" content="Ma Zekun">
     <meta name="copyright" content="Ma Zekun All Rights Reserved">
-    <head>
+    <script src="${request.contextPath}/static/js/jquery-1.11.1.min.js"></script>
+    <link href="${request.contextPath}/static/css/style.css" rel="stylesheet" type="text/css"/>
+    <style type="text/css">
+        .pageDetail {
+            display: none;
+        }
+        .show {
+            display: table-row;
+        }
+    </style>
+    <script>
+        $(function () {
+            $('#list').click(function () {
+                $('.pageDetail').toggleClass('show');
+            });
+        });
+    </script>
     </head>
 <body class="body">
 <div class="wrapper">
@@ -111,12 +127,11 @@
             <tbody>
             <#list pageInfo.list as janpanese>
                 <tr>
-                <td>${janpanese.id}</td>
-                <td>${janpanese.countryname}</td>
-                <td>${janpanese.countrycode}</td>
+                <td>${janpanese.wordid}</td>
+                <td>${janpanese.wordname}</td>
                 <td style="text-align:center;">[<a
-            href="${request.contextPath}/janpanese/view/${janpanese.id}">修改</a>] -
-            [<a href="${request.contextPath}/janpanese/delete/${janpanese.id}">删除</a>]
+            href="${request.contextPath}/janpanese/modify/${janpanese.wordid}">修改</a>] -
+            [<a href="${request.contextPath}/janpanese/delete/${janpanese.wordid}">删除</a>]
                 </td>
                 </tr>
             </#list>
@@ -126,10 +141,10 @@
             <tr>
             <#if pageInfo.hasPreviousPage>
                 <td>
-                <a href="${request.contextPath}/janpanese?page=1&rows=${pageInfo.pageSize}&countryname=${queryParam.countryname}&countrycode=${queryParam.countrycode}">首页</a>
+                <a href="${request.contextPath}/janpanese?page=1&rows=${pageInfo.pageSize}&wordname=${queryParam.wordname}&wordid=${queryParam.wordid}">首页</a>
                 </td>
                 <td>
-                <a href="${request.contextPath}/janpanese?page=${pageInfo.prePage}&rows=${pageInfo.pageSize}&countryname=${queryParam.countryname}&countrycode=${queryParam.countrycode}">前一页</a>
+                <a href="${request.contextPath}/janpanese?page=${pageInfo.prePage}&rows=${pageInfo.pageSize}&wordname=${queryParam.wordname}&wordid=${queryParam.wordid}">前一页</a>
                 </td>
             </#if>
             <#list pageInfo.navigatepageNums as nav>
@@ -138,16 +153,16 @@
                 </#if>
                 <#if nav != pageInfo.pageNum>
                     <td>
-                    <a href="${request.contextPath}/janpanese?page=${nav}&rows=${pageInfo.pageSize}&countryname=<#if queryParam.countryname??>${queryParam.countryname}</#if>&countrycode=<#if queryParam.countrycode??>${queryParam.countrycode}</#if>">${nav}</a>
+                    <a href="${request.contextPath}/janpanese?page=${nav}&rows=${pageInfo.pageSize}&wordname=<#if queryParam.wordname??>${queryParam.wordname}</#if>&wordid=<#if queryParam.wordid??>${queryParam.wordid}</#if>">${nav}</a>
                     </td>
                 </#if>
             </#list>
             <#if pageInfo.hasNextPage>
                 <td>
-                <a href="${request.contextPath}/countries?page=${pageInfo.nextPage}&rows=${pageInfo.pageSize}&countryname=<#if queryParam.countryname??>${queryParam.countryname}</#if>&countrycode=<#if queryParam.countrycode??>${queryParam.countrycode}</#if>">下一页</a>
+                <a href="${request.contextPath}/janpanese?page=${pageInfo.nextPage}&rows=${pageInfo.pageSize}&wordname=<#if queryParam.wordname??>${queryParam.wordname}</#if>&wordid=<#if queryParam.wordid??>${queryParam.wordid}</#if>">下一页</a>
                 </td>
                 <td>
-                <a href="${request.contextPath}/countries?page=${pageInfo.pages}&rows=${pageInfo.pageSize}&countryname=<#if queryParam.countryname??>${queryParam.countryname}</#if>&countrycode=<#if queryParam.countrycode??>${queryParam.countrycode}</#if>">尾页</a>
+                <a href="${request.contextPath}/janpanese?page=${pageInfo.pages}&rows=${pageInfo.pageSize}&wordname=<#if queryParam.wordname??>${queryParam.wordname}</#if>&wordid=<#if queryParam.wordid??>${queryParam.wordid}</#if>">尾页</a>
                 </td>
             </#if>
             </tr>

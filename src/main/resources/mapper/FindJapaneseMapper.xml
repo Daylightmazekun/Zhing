@@ -8,11 +8,12 @@
         <result property="wordkana" column="WORD_KANA"/>
         <result property="wordimi" column="WORD_IMI"/>
         <result property="tadoeba" column="TADOEBA"/>
+        <result property="type" column="TYPE"/>
     </resultMap>
     <select id="findJapaneseByUserId" resultMap="japanese">
         SELECT
-         t_japanese.USER_ID, t_japanese.WORLD_ID, t_japanese.WORD_NAME, t_japanese.WORD_KANA
-         ,t_japanese.WORD_IMI, t_japanese.TADOEBA
+         t_japanese.USER_ID, t_japanese.WORD_ID, t_japanese.WORD_NAME, t_japanese.WORD_KANA
+         ,t_japanese.WORD_IMI, t_japanese.TADOEBA, t_japanese.TYPE
         FROM t_japanese
         WHERE
           t_japanese.USER_ID = #{userId}
