@@ -21,7 +21,9 @@
 /__/ |__  | \  |__/ |  /      |  / |__/|
 </pre>
 
-
+<a>欢迎</a>
+    <a class="userid">${user.userid}</a>
+    <a class="username">${user.username}</a>
     <a href="/japanese">japanese</a>
 </div>
 

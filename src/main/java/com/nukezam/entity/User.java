@@ -3,7 +3,7 @@ package com.nukezam.entity;
 import org.springframework.stereotype.Component;
 
 @Component
-public class User extends BaseEntity{
+public class User {
     private int userid;
     private String username;
     private String password;

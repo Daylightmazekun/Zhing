@@ -3,7 +3,7 @@ package com.nukezam.entity;
 import org.springframework.stereotype.Component;
 
 @Component
-public class JapaneseWord {
+public class JapaneseWord extends BaseEntity{
 
     private int worldid;
 

@@ -20,13 +20,14 @@ public class JapaneseController {
 
     @RequestMapping
     public ModelAndView toJapanese(User user){
-        // User getUser = new User();
-        ModelAndView result = new ModelAndView("janpanese");
+        JapaneseWord japaneseWord = new JapaneseWord();
+        japaneseWord.setUserid(user.getUserid());
+        ModelAndView result = new ModelAndView("japanese");
         List<JapaneseWord> japaneseWordList = japanese.findJapaneseByUserId(user.getUserid());
         result.addObject("pageInfo", new PageInfo<JapaneseWord>(japaneseWordList));
-        result.addObject("queryParam", user);
-        result.addObject("page", user.getPage());
-        result.addObject("rows", user.getRows());
+        result.addObject("queryParam", japaneseWord);
+        result.addObject("page", japaneseWord.getPage());
+        result.addObject("rows", japaneseWord.getRows());
         return result;
 
     }
