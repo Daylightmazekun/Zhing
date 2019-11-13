@@ -1,5 +1,5 @@
-/bin/
-/target
-/.vscode
-/.settings
-/.idea
+bin/
+target/
+.vscode/
+.settings/
+.idea
